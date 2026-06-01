@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details - JamSpace</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .details-hero {
+            height: 380px;
+            width: 100%;
+            background-color: #cbd5e1;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .details-container {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        .main-info-column {
+            flex: 2;
+            min-width: 300px;
+        }
+        .sidebar-column {
+            flex: 1;
+            min-width: 280px;
+        }
+        .ticket-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            position: sticky;
+            top: 100px;
+        }
+        .vendor-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-top: 30px;
+        }
+        .vendor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .vendor-rating-badge {
+            background: #fef3c7;
+            color: #d97706;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f1f5f9;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spinAnimation 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spinAnimation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="./index.html" class="logo">Jam<span>Space</span></a>
+        <div class="nav-links">
+            <a href="./index.html">Home</a>
+            <a href="./listings.html">Find Events</a>
+            <button class="btn-primary" id="nav-create-btn">Create Event</button>
+        </div>
+    </nav>
+
+    <div class="details-hero" id="det-banner"></div>
+
+    <main class="container">
+        <div class="details-container">
+            
+            <div class="main-info-column">
+                <p class="event-date" id="det-date"></p>
+                <h1 id="det-title" style="font-size: 36px; margin-bottom: 20px; color: var(--dark);">Loading Event...</h1>
+                
+                <h2 style="font-size: 22px; margin-bottom: 12px; color: var(--dark);">About this Event</h2>
+                <p id="det-desc" style="line-height: 1.7; color: var(--gray-dark); font-size: 16px; margin-bottom: 30px;"></p>
+
+                <div class="vendor-card">
+                    <div class="vendor-header">
+                        <h3 id="det-vendor-name" style="font-size: 18px; color: var(--dark);">Verified Logistics Partner</h3>
+                        <span class="vendor-rating-badge" id="det-vendor-rating">★ 0.0</span>
+                    </div>
+                    <p id="det-vendor-desc" style="font-size: 14px; color: var(--gray-dark); line-height: 1.5;"></p>
+                </div>
+            </div>
+
+            <div class="sidebar-column">
+                <div class="ticket-box">
+                    <h3 style="font-size: 16px; color: var(--gray-dark); text-transform: uppercase; letter-spacing: 0.5px;">Admission Pass</h3>
+                    <div id="det-price" style="font-size: 32px; font-weight: 700; margin: 15px 0; color: var(--dark);">KES 0.00</div>
+                    <button class="btn-primary" id="buy-ticket-btn" style="width: 100%; padding: 14px; font-size: 16px;">Pay & Book Ticket</button>
+                    <p style="font-size: 12px; color: var(--gray-dark); text-align: center; margin-top: 15px; line-height: 1.4;">
+                        Payments processed safely via secure M-Pesa gateway layers.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="modal" id="ticket-modal">
+        <div class="modal-content" style="max-width: 420px; width: 90%; padding: 30px; text-align: center;">
+            
+            <div id="payment-step">
+                <h2 style="font-size: 24px; margin-bottom: 8px; color: var(--dark);">M-Pesa Checkout</h2>
+                <p style="font-size: 14px; color: var(--gray-dark); margin-bottom: 24px;">Authorize transaction tokens through the secure client pipeline.</p>
+                
+                <div class="form-group" style="text-align: left; margin-bottom: 16px;">
+                    <label style="font-weight: 600; font-size: 13px; color: var(--dark);">Full Name</label>
+                    <input type="text" id="pay-name" required placeholder="e.g. Kipchumba Bett" style="width: 100%; padding: 11px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 15px;">
+                </div>
+                
+                <div class="form-group" style="text-align: left; margin-bottom: 24px;">
+                    <label style="font-weight: 600; font-size: 13px; color: var(--dark);">M-Pesa Phone Number</label>
+                    <input type="tel" id="pay-phone" required placeholder="e.g. 0712345678" style="width: 100%; padding: 11px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 15px;">
+                </div>
+                
+                <button class="btn-primary" id="confirm-pay-btn" style="width: 100%; padding: 12px; font-size: 16px; margin-bottom: 12px;">Request STK Push</button>
+                <button class="btn-secondary" id="cancel-pay-btn" style="width: 100%; padding: 10px; background: transparent; color: var(--gray-dark); border: none;">Cancel Process</button>
+            </div>
+
+            <div id="processing-step" style="display: none; padding: 40px 0;">
+                <div class="spinner"></div>
+                <h3 style="color: var(--dark); margin-bottom: 8px; font-size: 18px;">Awaiting STK Confirmation</h3>
+                <p style="font-size: 14px; color: var(--gray-dark); padding: 0 20px; line-height: 1.5;"> Please check your handset device screen and input your M-Pesa PIN code to process.</p>
+            </div>
+
+            <div id="success-step" style="display: none;">
+                <h2 style="color: #10b981; font-size: 24px; margin-bottom: 8px;">Booking Confirmed!</h2>
+                <p style="color: var(--gray-dark); margin-bottom: 20px; font-size: 14px;">Your verification pass is live inside the JamSpace node grid.</p>
+                
+                <div style="background: #f8fafc; padding: 16px; border-radius: 12px; display: inline-block; margin-bottom: 20px; border: 1px dashed #cbd5e1;">
+                    <img id="real-qr-code" src="" alt="Admission Token QR" style="width: 170px; height: 170px; display: block; background: #ffffff;">
+                </div>
+                
+                <p id="det-ticket-uuid" style="font-family: 'Courier New', Courier, monospace; font-weight: 700; background: #e2e8f0; padding: 10px; border-radius: 6px; font-size: 14px; color: var(--dark); letter-spacing: 0.5px;"></p>
+                <button class="btn-secondary" id="close-modal-btn" style="margin-top: 24px; width: 100%; padding: 12px; font-size: 15px;">Dismiss Voucher</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="details.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHub - Live Event Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-container">
+    <img src="Logo.jpeg" alt="JAMSPACE Logo" class="nav-logo">
+</a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="./listings.html">Find Events</a>
+            <button class="btn-primary" id="nav-create-btn">Create Event</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Discover and Manage Unforgettable Events</h1>
+        <p>Connect with top-tier vendors, purchase secure QR tickets, and track analytics live.</p>
+        <div class="search-bar">
+            <input type="text" id="home-search-input" placeholder="Search events, vendors, or categories...">
+            <button class="btn-primary" id="home-search-btn">Search</button>
+        </div>
+    </header>
+
+ <main class="container">
+    <h2 class="section-title">Featured Events</h2>
+    <div class="event-grid" id="featured-grid">
+        
+        <article class="event-card">
+            <div class="event-img" style="background: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500') center/cover;"></div>
+            <div class="event-content">
+                <p class="event-date">Oct 24 • Tech Innovations</p>
+                <h3 class="event-title"><a href="details.html?id=mmu-tech">MMU Tech Summit 2026</a></h3>
+                <p class="event-venue">MULTIMEDIA UNIVERSITY, Kenya</p>
+                <button class="btn-primary" onclick="window.location.href='details.html?id=mmu-tech'">View Details</button>
+            </div>
+        </article>
+
+        <article class="event-card">
+            <div class="event-img" style="background: url('https://images.unsplash.com/photo-1502224562085-639556652f33?w=600') center/cover;"></div>
+            <div class="event-content">
+                <p class="event-date">JUN 06 • Birth&Beyond</p>
+                <h3 class="event-title"><a href="details.html?id=charity-run">Charity RUN 2026</a></h3>
+                <p class="event-venue">MARUAHUB, Ongata Rongai</p>
+                <button class="btn-primary" onclick="window.location.href='details.html?id=charity-run'">View Details</button>
+            </div>
+        </article>
+
+        <article class="event-card">
+            <div class="event-img" style="background: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600') center/cover;"></div>
+            <div class="event-content">
+                <p class="event-date">Nov 05 • Business</p>
+                <h3 class="event-title"><a href="details.html?id=tech-gala">Tech Enthusiasts Gala</a></h3>
+                <p class="event-venue">Nairobi KICC</p>
+                <button class="btn-primary" onclick="window.location.href='details.html?id=tech-gala'">View Details</button>
+            </div>
+        </article>
+
+    </div>
+</main> 
+
+<script src="details.js"></script>
+
+
+    <div class="modal" id="create-event-modal">
+        <div class="modal-content" style="text-align: left; max-width: 500px;">
+            <h2 style="margin-bottom: 20px; color: var(--primary);">Create New Event</h2>
+            
+            <form id="create-event-form">
+                <div style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom: 5px; font-weight: 600;">Event Title</label>
+                    <input type="text" id="form-title" required style="width:100%; padding:10px; border:1px solid var(--gray-light); border-radius:var(--radius);">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom: 5px; font-weight: 600;">Category</label>
+                    <input type="text" id="form-category" placeholder="e.g., Tech, Music, Sports" required style="width:100%; padding:10px; border:1px solid var(--gray-light); border-radius:var(--radius);">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom: 5px; font-weight: 600;">Date & Time</label>
+                    <input type="text" id="form-date" placeholder="e.g., Jan 15 • 6:00 PM" required style="width:100%; padding:10px; border:1px solid var(--gray-light); border-radius:var(--radius);">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display:block; margin-bottom: 5px; font-weight: 600;">Venue / Location</label>
+                    <input type="text" id="form-venue" required style="width:100%; padding:10px; border:1px solid var(--gray-light); border-radius:var(--radius);">
+                </div>
+
+                <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                    <button type="button" class="btn-primary" id="close-create-modal" style="background-color: var(--gray-dark);">Cancel</button>
+                    <button type="submit" class="btn-primary">Publish Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
