@@ -28,14 +28,14 @@ $joined = date("F j, Y", strtotime($user['created_at']));
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile — TUKUTANE</title>
+  <title>Profile — JAMSPACE</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="profile-body">
 
   <!-- TOP NAV BAR -->
   <nav class="profile-topbar">
-    <a href="profile.php" class="brand">🎉 TUKUTANE</a>
+    <a href="profile.php" class="brand">🎉 JAMSPACE</a>
     <a href="logout.php" class="logout-btn">Logout</a>
   </nav>
 
