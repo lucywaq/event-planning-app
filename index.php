@@ -24,7 +24,7 @@
 <body class="splash-body">
   <div class="splash-card">
     <div class="splash-logo">🎉</div>
-    <h1 class="splash-title">TUKUTANE</h1>
+    <h1 class="splash-title">JAMSPACE</h1>
     <p class="splash-sub">Your events, perfectly organized</p>
     <div class="splash-loader">
       <div class="splash-dot"></div>
