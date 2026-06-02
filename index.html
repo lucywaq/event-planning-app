@@ -1,120 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Event Management Dashboard</title>
-<link rel="stylesheet" href="Vendorsstyle.css">
-</head>
-<body>
- 
-<header>
-    <h1>Event Management System</h1>
-</header>
-
-<div class="container">
-
-    <aside>
-        <ul>
-            <li onclick="showSection('dashboard')">Dashboard</li>
-            <li onclick="showSection('createEvent')">Create Event</li>
-            <li onclick="showSection('vendors')">Vendor Marketplace</li>
-            <li onclick="showSection('vendorProfile')">Vendor Profile</li>
-            <li onclick="showSection('tickets')">My Tickets</li>
-            <li onclick="showSection('messages')">Messages</li>
-            <li onclick="showSection('notifications')">Notifications</li>
-        </ul>
-    </aside>
-
-    <main>
-
-        <section id="dashboard" class="section active">
-            <h2>Dashboard</h2>
-
-            <div class="cards">
-                <div class="card">
-                    <h3 id="eventCount">0</h3>
-                    <p>Events</p>
-                </div>
-
-                <div class="card">
-                    <h3 id="vendorCount">0</h3>
-                    <p>Vendors</p>
-                </div>
-
-                <div class="card">
-                    <h3 id="ticketCount">0</h3>
-                    <p>Tickets</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="createEvent" class="section">
-            <h2>Create Event</h2>
-
-            <input type="text" id="eventName" placeholder="Event Name">
-
-            <input type="date" id="eventDate">
-
-            <button onclick="createEvent()">Create Event</button>
-
-            <ul id="eventList"></ul>
-        </section>
-
-        <section id="vendors" class="section">
-            <h2>Vendor Marketplace</h2>
-
-            <input type="text" id="vendorName" placeholder="Vendor Name">
-
-            <input type="text" id="vendorService" placeholder="Service">
-
-            <button onclick="addVendor()">Add Vendor</button>
-
-            <div id="vendorList"></div>
-        </section>
-
-        <section id="vendorProfile" class="section">
-            <h2>Vendor Profile</h2>
-
-            <div class="profile">
-                <h3>Blue Events Catering</h3>
-                <p>Service: Catering</p>
-                <p>Email: vendor@example.com</p>
-                <p>Phone: +254700000000</p>
-            </div>
-        </section>
-
-        <section id="tickets" class="section">
-            <h2>My Tickets</h2>
-
-            <input type="text" id="ticketName" placeholder="Ticket Name">
-
-            <button onclick="addTicket()">Add Ticket</button>
-
-            <ul id="ticketList"></ul>
-        </section>
-
-        <section id="messages" class="section">
-            <h2>Messages</h2>
-
-            <textarea id="messageText" placeholder="Type message"></textarea>
-
-            <button onclick="sendMessage()">Send</button>
-
-            <div id="messageList"></div>
-        </section>
-
-        <section id="notifications" class="section">
-            <h2>Notifications</h2>
-
-            <ul id="notificationList"></ul>
-        </section>
-
-    </main>
-
-</div>
-
-<script src="vendorsscript.js"></script>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JamSpace</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
